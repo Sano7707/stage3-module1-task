@@ -20,6 +20,9 @@ subprojects {
     dependencies {
         testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
         testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+        implementation 'org.springframework.boot:spring-boot-starter-websocket:1.5.22.RELEASE'
+        implementation 'org.mapstruct:mapstruct:1.4.2.Final'
+        annotationProcessor 'org.mapstruct:mapstruct-processor:1.4.2.Final'
     }
 
     test {
@@ -38,4 +41,12 @@ task repack(type: Jar, dependsOn: ':module-main:build') {
             )
         }
     }
+}
+
+dependencies {
+    implementation 'org.no-hope:springapp:0.2.3'
+}
+
+repositories {
+    mavenCentral()
 }
