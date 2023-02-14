@@ -1,6 +1,7 @@
 package com.mjc.schol.service;
 
-import com.mjc.school.repository.implementation.News;
+import com.mjc.school.repository.implementation.NewsDataSource;
+
 import java.time.format.DateTimeFormatter;
 import javax.annotation.processing.Generated;
 
@@ -12,54 +13,54 @@ import javax.annotation.processing.Generated;
 public class NewsMapperImpl implements NewsMapper {
 
     @Override
-    public News toNews(CreateNewsDTO createNewsDTO) {
+    public NewsDataSource toNews(CreateNewsDTO createNewsDTO) {
         if ( createNewsDTO == null ) {
             return null;
         }
 
-        News news = new News();
+        NewsDataSource newsDataSource = new NewsDataSource();
 
-        news.setTitle( createNewsDTO.getTitle() );
-        news.setContent( createNewsDTO.getContent() );
-        news.setAuthorId( createNewsDTO.getAuthorId() );
+        newsDataSource.setTitle( createNewsDTO.getTitle() );
+        newsDataSource.setContent( createNewsDTO.getContent() );
+        newsDataSource.setAuthorId( createNewsDTO.getAuthorId() );
 
-        return news;
+        return newsDataSource;
     }
 
     @Override
-    public NewsModelDTO toNewsDTO(News news) {
-        if ( news == null ) {
+    public NewsModelDTO toNewsDTO(NewsDataSource newsDataSource) {
+        if ( newsDataSource == null ) {
             return null;
         }
 
         NewsModelDTO newsDTO = new NewsModelDTO();
 
-        newsDTO.setId( news.getId() );
-        newsDTO.setTitle( news.getTitle() );
-        newsDTO.setContent( news.getContent() );
-        if ( news.getCreatedDate() != null ) {
-            newsDTO.setCreatedDate( DateTimeFormatter.ISO_LOCAL_DATE_TIME.format( news.getCreatedDate() ) );
+        newsDTO.setId( newsDataSource.getId() );
+        newsDTO.setTitle( newsDataSource.getTitle() );
+        newsDTO.setContent( newsDataSource.getContent() );
+        if ( newsDataSource.getCreatedDate() != null ) {
+            newsDTO.setCreatedDate( DateTimeFormatter.ISO_LOCAL_DATE_TIME.format( newsDataSource.getCreatedDate() ) );
         }
-        if ( news.getLastUpdatedDate() != null ) {
-            newsDTO.setLastUpdatedDate( DateTimeFormatter.ISO_LOCAL_DATE_TIME.format( news.getLastUpdatedDate() ) );
+        if ( newsDataSource.getLastUpdatedDate() != null ) {
+            newsDTO.setLastUpdatedDate( DateTimeFormatter.ISO_LOCAL_DATE_TIME.format( newsDataSource.getLastUpdatedDate() ) );
         }
-        newsDTO.setAuthorId( news.getAuthorId() );
+        newsDTO.setAuthorId( newsDataSource.getAuthorId() );
 
         return newsDTO;
     }
 
     @Override
-    public News updateNews(UpdateNewsDTO updateNewsDTO) {
+    public NewsDataSource updateNews(UpdateNewsDTO updateNewsDTO) {
         if ( updateNewsDTO == null ) {
             return null;
         }
 
-        News news = new News();
+        NewsDataSource newsDataSource = new NewsDataSource();
 
-        news.setTitle( updateNewsDTO.getTitle() );
-        news.setContent( updateNewsDTO.getContent() );
-        news.setAuthorId( updateNewsDTO.getAuthorId() );
+        newsDataSource.setTitle( updateNewsDTO.getTitle() );
+        newsDataSource.setContent( updateNewsDTO.getContent() );
+        newsDataSource.setAuthorId( updateNewsDTO.getAuthorId() );
 
-        return news;
+        return newsDataSource;
     }
 }

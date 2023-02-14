@@ -1,6 +1,6 @@
 package com.mjc.schol.service;
 
-import com.mjc.school.repository.implementation.News;
+import com.mjc.school.repository.implementation.NewsDataSource;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
@@ -8,11 +8,11 @@ import org.mapstruct.Mapping;
 public interface NewsMapper {
 
     @Mapping(target = "id", ignore = true)
-    News toNews(CreateNewsDTO createNewsDTO);
+    NewsDataSource toNews(CreateNewsDTO createNewsDTO);
 
-    NewsModelDTO toNewsDTO(News news);
+    NewsModelDTO toNewsDTO(NewsDataSource newsDataSource);
 
     @Mapping(target = "id", ignore = true)
-    News updateNews(UpdateNewsDTO updateNewsDTO);
+    NewsDataSource updateNews(UpdateNewsDTO updateNewsDTO);
 
 }

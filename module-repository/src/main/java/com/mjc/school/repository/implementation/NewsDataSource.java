@@ -6,7 +6,7 @@ import java.util.List;
 
 
 
-public class News {
+public class NewsDataSource {
     private Long id;
     private String title;
     private String content;
@@ -15,10 +15,10 @@ public class News {
     private Long authorId;
     private DataSource dataSource;
 
-    public News() {
+    public NewsDataSource() {
     }
 
-    public News(String title, String content, Long authorId) {
+    public NewsDataSource(String title, String content, Long authorId) {
         this.title = title;
         this.content = content;
         this.createdDate = LocalDateTime.now();
@@ -90,7 +90,7 @@ public class News {
         return new ProjectModel();
     }
 
-    public List<News> readAll() {
+    public List<NewsDataSource> readAll() {
         return new ArrayList<>();
     }
 
