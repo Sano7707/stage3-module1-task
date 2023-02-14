@@ -27,12 +27,12 @@ public class NewsMapperImpl implements NewsMapper {
     }
 
     @Override
-    public NewsDTO toNewsDTO(News news) {
+    public NewsModelDTO toNewsDTO(News news) {
         if ( news == null ) {
             return null;
         }
 
-        NewsDTO newsDTO = new NewsDTO();
+        NewsModelDTO newsDTO = new NewsModelDTO();
 
         newsDTO.setId( news.getId() );
         newsDTO.setTitle( news.getTitle() );

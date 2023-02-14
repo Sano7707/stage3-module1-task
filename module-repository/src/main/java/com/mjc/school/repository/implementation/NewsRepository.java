@@ -8,9 +8,9 @@ public class NewsRepository {
 
     private List<News> newsList = new ArrayList<>();
 
-    public News create(News news) {
+    public ProjectModel create(News news) {
         newsList.add(news);
-        return news;
+        return new ProjectModel();
     }
 
     public List<News> readAll() {
@@ -21,13 +21,13 @@ public class NewsRepository {
         return newsList.stream().filter(news -> news.getId().equals(id)).findFirst();
     }
 
-    public News update(News news) {
+    public ProjectModel update(News news) {
         newsList.removeIf(news1 -> news1.getId().equals(news.getId()));
         newsList.add(news);
-        return news;
+        return new ProjectModel();
     }
 
-    public Boolean delete(News news) {
-        return newsList.removeIf(news1 -> news1.getId().equals(news.getId()));
+    public Boolean delete(Long id) {
+        return newsList.removeIf(news1 -> news1.getId().equals(id));
     }
 }

@@ -1,6 +1,6 @@
 package com.mjc.schol.service;
 
-public class NewsDTO {
+public class NewsModelDTO {
     private Long id;
     private String title;
     private String content;

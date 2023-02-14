@@ -10,7 +10,7 @@ public interface NewsMapper {
     @Mapping(target = "id", ignore = true)
     News toNews(CreateNewsDTO createNewsDTO);
 
-    NewsDTO toNewsDTO(News news);
+    NewsModelDTO toNewsDTO(News news);
 
     @Mapping(target = "id", ignore = true)
     News updateNews(UpdateNewsDTO updateNewsDTO);
