@@ -1,6 +1,9 @@
 package com.mjc.school.repository.implementation;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 public class News {
     private Long id;
@@ -79,5 +82,25 @@ public class News {
                 ", lastUpdatedDate=" + lastUpdatedDate +
                 ", authorId=" + authorId +
                 '}';
+    }
+
+    public News create(News news) {
+        return news;
+    }
+
+    public List<News> readAll() {
+        return new ArrayList<>();
+    }
+
+    public Optional<Long> readBy(Long id) {
+        return Optional.of(id);
+    }
+
+    public News update(News news) {
+        return news;
+    }
+
+    public boolean delete(News news) {
+        return true;
     }
 }
