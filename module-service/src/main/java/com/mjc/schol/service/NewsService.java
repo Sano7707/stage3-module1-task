@@ -20,31 +20,31 @@ public class NewsService {
 
     public NewsDTO createNews(CreateNewsDTO createNewsDTO) {
         News news = newsMapper.toNews(createNewsDTO);
-        News createdNews = newsRepository.createNews(news);
+        News createdNews = newsRepository.create(news);
         return newsMapper.toNewsDTO(createdNews);
     }
 
     public List<NewsDTO> getAllNews() {
-        List<News> allNews = newsRepository.getAllNews();
+        List<News> allNews = newsRepository.readAll();
         return allNews.stream().map(newsMapper::toNewsDTO).collect(Collectors.toList());
     }
 
     public NewsDTO getNewsById(Long id) {
-        News news = newsRepository.getNewsById(id).orElseThrow(() -> new NewsNotFoundException(id));
+        News news = newsRepository.readBy(id).orElseThrow(() -> new NewsNotFoundException(id));
         return newsMapper.toNewsDTO(news);
     }
 
     public NewsDTO updateNews(Long id, UpdateNewsDTO updateNewsDTO) {
-        newsRepository.getNewsById(id).orElseThrow(() -> new NewsNotFoundException(id));
+        newsRepository.readBy(id).orElseThrow(() -> new NewsNotFoundException(id));
         News news;
         news = newsMapper.updateNews(updateNewsDTO);
-        news = newsRepository.updateNews(news);
+        news = newsRepository.update(news);
         return newsMapper.toNewsDTO(news);
     }
 
     public boolean deleteNews(Long id) {
-        News news = newsRepository.getNewsById(id).orElseThrow(() -> new NewsNotFoundException(id));
-        newsRepository.deleteNews(news);
+        News news = newsRepository.readBy(id).orElseThrow(() -> new NewsNotFoundException(id));
+        newsRepository.delete(news);
         return true;
     }
 }
