@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+
 public class News {
     private Long id;
     private String title;
@@ -84,23 +85,23 @@ public class News {
                 '}';
     }
 
-    public News create(News news) {
-        return news;
+    public ProjectModel create(News news) {
+        return new ProjectModel();
     }
 
     public List<News> readAll() {
         return new ArrayList<>();
     }
 
-    public Optional<Long> readBy(Long id) {
-        return Optional.of(id);
+    public ProjectModel readBy(Long id) {
+        return new ProjectModel();
     }
 
-    public News update(News news) {
-        return news;
+    public ProjectModel update(News news) {
+        return new ProjectModel();
     }
 
-    public boolean delete(News news) {
+    public Boolean delete(News news) {
         return true;
     }
 }

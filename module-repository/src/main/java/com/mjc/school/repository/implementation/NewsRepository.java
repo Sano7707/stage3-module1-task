@@ -27,7 +27,7 @@ public class NewsRepository {
         return news;
     }
 
-    public boolean delete(News news) {
+    public Boolean delete(News news) {
         return newsList.removeIf(news1 -> news1.getId().equals(news.getId()));
     }
 }
