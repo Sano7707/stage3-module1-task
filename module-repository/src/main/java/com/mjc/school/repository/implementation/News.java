@@ -3,7 +3,7 @@ package com.mjc.school.repository.implementation;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+
 
 
 public class News {
@@ -85,7 +85,7 @@ public class News {
                 '}';
     }
 
-    public ProjectModel create(News news) {
+    public ProjectModel create(ProjectModel news) {
         return new ProjectModel();
     }
 
@@ -97,11 +97,11 @@ public class News {
         return new ProjectModel();
     }
 
-    public ProjectModel update(News news) {
+    public ProjectModel update(ProjectModel news) {
         return new ProjectModel();
     }
 
-    public Boolean delete(News news) {
+    public Boolean delete(Long id) {
         return true;
     }
 }
