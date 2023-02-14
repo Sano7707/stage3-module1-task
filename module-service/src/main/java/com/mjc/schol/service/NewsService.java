@@ -1,7 +1,7 @@
 package com.mjc.schol.service;
 
-import com.mjc.school.repository.News;
-import com.mjc.school.repository.NewsRepository;
+import com.mjc.school.repository.implementation.News;
+import com.mjc.school.repository.implementation.NewsRepository;
 import org.mapstruct.factory.Mappers;
 import org.springframework.stereotype.Service;
 

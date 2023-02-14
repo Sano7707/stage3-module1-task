@@ -1,4 +1,6 @@
-package com.mjc.school.repository;
+package com.mjc.school.repository.implementation;
+
+import com.mjc.school.repository.implementation.News;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +29,7 @@ public class NewsRepository {
         return news;
     }
 
-    public void deleteNews(News news) {
-        newsList.removeIf(news1 -> news1.getId().equals(news.getId()));
+    public boolean deleteNews(News news) {
+        return newsList.removeIf(news1 -> news1.getId().equals(news.getId()));
     }
 }

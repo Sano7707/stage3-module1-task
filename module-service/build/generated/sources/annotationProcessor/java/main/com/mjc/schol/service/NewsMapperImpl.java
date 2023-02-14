@@ -1,6 +1,6 @@
 package com.mjc.schol.service;
 
-import com.mjc.school.repository.News;
+import com.mjc.school.repository.implementation.News;
 import java.time.format.DateTimeFormatter;
 import javax.annotation.processing.Generated;
 
