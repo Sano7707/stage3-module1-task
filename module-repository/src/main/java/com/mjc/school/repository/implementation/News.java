@@ -6,19 +6,18 @@ import java.util.List;
 
 
 
-public class NewsDataSource {
+public class News {
     private Long id;
     private String title;
     private String content;
     private LocalDateTime createdDate;
     private LocalDateTime lastUpdatedDate;
     private Long authorId;
-    private DataSource dataSource;
 
-    public NewsDataSource() {
+    public News() {
     }
 
-    public NewsDataSource(String title, String content, Long authorId) {
+    public News(String title, String content, Long authorId) {
         this.title = title;
         this.content = content;
         this.createdDate = LocalDateTime.now();
@@ -90,7 +89,7 @@ public class NewsDataSource {
         return new ProjectModel();
     }
 
-    public List<NewsDataSource> readAll() {
+    public List<News> readAll() {
         return new ArrayList<>();
     }
 

@@ -1,7 +1,7 @@
 package com.mjc.schol.service;
 
-import com.mjc.school.repository.implementation.NewsDataSource;
-import com.mjc.school.repository.implementation.NewsRepositoryDataSource;
+import com.mjc.school.repository.implementation.News;
+import com.mjc.school.repository.implementation.NewsRepository;
 import com.mjc.school.repository.implementation.ProjectModel;
 import org.mapstruct.factory.Mappers;
 import org.springframework.stereotype.Service;
@@ -12,38 +12,38 @@ import java.util.stream.Collectors;
 @Service
 public class NewsService {
 
-    private final NewsRepositoryDataSource newsRepositoryDataSource;
+    private final NewsRepository newsRepository;
     private final NewsMapper newsMapper = Mappers.getMapper(NewsMapper.class);
 
-    public NewsService(NewsRepositoryDataSource newsRepositoryDataSource) {
-        this.newsRepositoryDataSource = newsRepositoryDataSource;
+    public NewsService(NewsRepository newsRepository) {
+        this.newsRepository = newsRepository;
     }
 
     public NewsModelDTO createNews(CreateNewsDTO createNewsDTO) {
-        NewsDataSource newsDataSource = newsMapper.toNews(createNewsDTO);
-        ProjectModel createdNews = newsRepositoryDataSource.create(newsDataSource);
+        News news = newsMapper.toNews(createNewsDTO);
+        ProjectModel createdNews = newsRepository.create(news);
         return new NewsModelDTO();
     }
 
     public List<NewsModelDTO> getAllNews() {
-        List<NewsDataSource> allNews = newsRepositoryDataSource.readAll();
+        List<News> allNews = newsRepository.readAll();
         return allNews.stream().map(newsMapper::toNewsDTO).collect(Collectors.toList());
     }
 
     public NewsModelDTO getNewsById(Long id) {
-        NewsDataSource newsDataSource = newsRepositoryDataSource.readBy(id).orElseThrow(() -> new NewsNotFoundException(id));
-        return newsMapper.toNewsDTO(newsDataSource);
+        News news = newsRepository.readBy(id).orElseThrow(() -> new NewsNotFoundException(id));
+        return newsMapper.toNewsDTO(news);
     }
 
     public NewsModelDTO updateNews(Long id, UpdateNewsDTO updateNewsDTO) {
-        newsRepositoryDataSource.readBy(id).orElseThrow(() -> new NewsNotFoundException(id));
-        NewsDataSource newsDataSource;
-        newsDataSource = newsMapper.updateNews(updateNewsDTO);
+        newsRepository.readBy(id).orElseThrow(() -> new NewsNotFoundException(id));
+        News news;
+        news = newsMapper.updateNews(updateNewsDTO);
         return new NewsModelDTO();
     }
 
     public boolean deleteNews(Long id) {
-        NewsDataSource newsDataSource = newsRepositoryDataSource.readBy(id).orElseThrow(() -> new NewsNotFoundException(id));
+        News news = newsRepository.readBy(id).orElseThrow(() -> new NewsNotFoundException(id));
         return true;
     }
 }
