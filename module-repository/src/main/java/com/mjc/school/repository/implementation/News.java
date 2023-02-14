@@ -13,6 +13,7 @@ public class News {
     private LocalDateTime createdDate;
     private LocalDateTime lastUpdatedDate;
     private Long authorId;
+    private DataSource dataSource;
 
     public News() {
     }

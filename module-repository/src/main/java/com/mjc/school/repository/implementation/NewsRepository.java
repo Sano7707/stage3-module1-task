@@ -1,10 +1,12 @@
 package com.mjc.school.repository.implementation;
 
+import javax.xml.crypto.Data;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 public class NewsRepository {
+    private DataSource dataSource;
 
     private List<News> newsList = new ArrayList<>();
 
